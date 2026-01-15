@@ -38,6 +38,8 @@ $colors: (
     highlight_light: #f0f2f6 // button hover bg / badges
 );
 
+$primary-font: "--font-montserrat";
+
 @mixin fourk {
     @media (min-width: 1441px) {
         @content;
