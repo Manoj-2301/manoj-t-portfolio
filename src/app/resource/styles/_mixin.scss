@@ -97,7 +97,9 @@ $primary-font: "--font-montserrat";
 @function colormap($color-name) {
     @if map.has-key($colors, $color-name) {
         @return map.get($colors, $color-name);
-    } @else {
+    }
+
+    @else {
         @error "Color `#{$color-name}` not found in the colors map.";
     }
 }
