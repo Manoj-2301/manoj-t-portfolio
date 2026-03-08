@@ -5,54 +5,129 @@
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
-    // position: fixed;
-    position: sticky;
-    border-radius: 5rem;
     width: 100%;
+    padding: 0.875rem 2.5rem;
+    border-radius: 5rem;
+
+    // Sticky — works correctly when parent is full-width
+    position: sticky;
     top: 1rem;
-    left: 50%;
-    // z-index: 100;
-    // transform: translate(-50%);
-    padding: .75rem 3rem;
-    background-color: rgba($color: colormap(background_secondary), $alpha: 1);
-    // backdrop-filter: blur(500px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.09);
+    z-index: 100;
+
+    // Frosted-glass dark navbar
+    background-color: rgba(18, 21, 31, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    // Stronger shadow when scrolled
+    &.scrolled {
+        box-shadow:
+            0 8px 40px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        background-color: rgba(12, 14, 22, 0.88);
+    }
+
+    // Subtle inner glow on top edge
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(90deg,
+                rgba(110, 158, 245, 0.04) 0%,
+                transparent 50%,
+                rgba(94, 203, 138, 0.03) 100%);
+        pointer-events: none;
+    }
+
+    .logo {
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: colormap(text_primary);
+        letter-spacing: -0.03em;
+        position: relative;
+        z-index: 1;
+
+        // Accent dot on the logo
+        &::after {
+            content: '.';
+            color: colormap(primary);
+        }
+    }
 
     .nav_links {
         display: flex;
         align-items: center;
-        gap: 2rem;
+        gap: 2.25rem;
+        position: relative;
+        z-index: 1;
 
         @include mobile {
             display: none;
         }
 
         a {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            color: colormap(text_primary);
-            transition: all 0.3s ease-in-out;
+            color: colormap(text_secondary);
+            transition: color 0.25s ease;
+            position: relative;
+
+            // Animated underline on hover
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 1.5px;
+                background-color: colormap(primary);
+                border-radius: 2px;
+                transition: width 0.3s ease;
+            }
 
             &:hover {
-                color: colormap(text_secondary);
+                color: colormap(text_primary);
+
+                &::after {
+                    width: 100%;
+                }
+            }
+
+            // Active page link
+            &.active {
+                color: colormap(primary);
+
+                &::after {
+                    width: 100%;
+                }
             }
         }
     }
 
     .nav_contact {
-        font-size: 1rem;
-        font-weight: 500;
-        color: colormap(link);
-        // border: 2px solid colormap(link);
-        background-color: colormap(section_background);
-        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: colormap(primary);
+        background-color: rgba(110, 158, 245, 0.1);
+        border: 1px solid rgba(110, 158, 245, 0.25);
+        padding: 0.5rem 1.125rem;
         border-radius: 2rem;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease;
         text-transform: capitalize;
+        position: relative;
+        z-index: 1;
+        letter-spacing: 0.01em;
 
         &:hover {
-            background-color: colormap(highlight_light);
-            color: colormap(text_primary);
+            background-color: colormap(primary);
+            color: colormap(background_primary);
+            border-color: colormap(primary);
+            box-shadow: 0 0 20px rgba(110, 158, 245, 0.3);
         }
     }
 }

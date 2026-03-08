@@ -1,0 +1,308 @@
+@use "../../styles/mixin" as *;
+
+// ─────────────────────────────────────────────
+// PAGE
+// ─────────────────────────────────────────────
+
+.page {
+    padding: 6rem 0 8rem;
+
+    @include mobile {
+        padding: 4rem 0 5rem;
+    }
+}
+
+// ─────────────────────────────────────────────
+// HEADER
+// ─────────────────────────────────────────────
+
+.header {
+    margin-bottom: 5rem;
+
+    @include mobile {
+        margin-bottom: 3.5rem;
+    }
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: colormap(primary);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 1.5px;
+        background: colormap(primary);
+        border-radius: 2px;
+    }
+
+    @include mobile {
+        justify-content: center;
+
+        &::before {
+            display: none;
+        }
+    }
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: colormap(text_primary);
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: 1.1rem;
+
+    span {
+        color: colormap(primary);
+    }
+
+    @include mobile {
+        text-align: center;
+    }
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: colormap(text_secondary);
+    line-height: 1.7;
+    max-width: 480px;
+
+    @include mobile {
+        text-align: center;
+        margin: 0 auto;
+        font-size: 0.9rem;
+    }
+}
+
+// ─────────────────────────────────────────────
+// GRID
+// ─────────────────────────────────────────────
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 5rem;
+
+    @include laptop {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: 0.875rem;
+    }
+}
+
+// ─────────────────────────────────────────────
+// SERVICE CARD
+// Note: per-card accent colors are applied via
+// inline styles in JSX — not CSS variables here.
+// This avoids rgba(var()) and color-mix() issues.
+// ─────────────────────────────────────────────
+
+.service_card {
+    position: relative;
+    background: colormap(background_secondary);
+    border: 1px solid colormap(border_light);
+    border-radius: 1.25rem;
+    padding: 1.75rem 1.75rem 1.5rem;
+    cursor: pointer;
+    overflow: hidden;
+    // border-color hover is handled by inline style in JSX
+    transition: background 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+        background: colormap(section_background);
+    }
+}
+
+// Glow blob — background color set inline, opacity via Framer Motion
+.card_glow {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0; // Framer Motion animates this
+    pointer-events: none;
+    z-index: 0;
+}
+
+.card_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 1;
+}
+
+// Number badge — color, background, borderColor all set inline via JSX
+.card_number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 20px;
+    border: 1px solid transparent; // color set inline
+}
+
+// Arrow — color animated by Framer Motion animate prop
+.card_arrow {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1;
+    display: inline-block;
+    // color is animated by Framer Motion in JSX
+}
+
+.card_title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: colormap(text_primary);
+    letter-spacing: -0.025em;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+    position: relative;
+    z-index: 1;
+}
+
+.card_short {
+    font-size: 0.88rem;
+    color: colormap(text_secondary);
+    line-height: 1.55;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+// Expandable detail — height animated by Framer Motion
+.card_detail {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.card_desc {
+    font-size: 0.875rem;
+    color: colormap(text_secondary);
+    line-height: 1.7;
+    margin-top: 1.1rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid colormap(border_light);
+}
+
+.card_tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.tool_badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: colormap(success);
+    background: rgba(94, 203, 138, 0.1);
+    border: 1px solid rgba(94, 203, 138, 0.2);
+    padding: 0.2rem 0.55rem;
+    border-radius: 20px;
+}
+
+// Bottom accent line
+// background color set inline in JSX, scaleX animated by Framer Motion
+.card_line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    transform-origin: left;
+    transform: scaleX(0); // Framer Motion overrides this
+    border-radius: 0 0 1.25rem 1.25rem;
+    z-index: 2;
+}
+
+// ─────────────────────────────────────────────
+// CTA BLOCK
+// ─────────────────────────────────────────────
+
+.cta_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2.25rem 2.5rem;
+    background: colormap(section_background);
+    border: 1px solid colormap(border_accent);
+    border-radius: 1.25rem;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 200px;
+        height: 200px;
+        background: colormap(primary);
+        border-radius: 50%;
+        opacity: 0.07;
+        filter: blur(60px);
+        pointer-events: none;
+    }
+
+    @include mobile {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.75rem;
+    }
+}
+
+.cta_text {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: colormap(text_primary);
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    max-width: 380px;
+    margin: 0;
+}
+
+.cta_btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: colormap(background_primary);
+    background: colormap(primary);
+    padding: 0.875rem 1.75rem;
+    border-radius: 3rem;
+    letter-spacing: 0.02em;
+    transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+
+    &:hover {
+        background: colormap(link);
+        box-shadow: 0 0 28px rgba(110, 158, 245, 0.4);
+        transform: translateY(-2px);
+    }
+}

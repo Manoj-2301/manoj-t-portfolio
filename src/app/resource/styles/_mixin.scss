@@ -1,44 +1,38 @@
 @use "sass:map";
 @use "sass:color";
+
 $colors: (
     // Base
     white: #ffffff,
     black: #0f172a,
 
     // Backgrounds
-    background_primary: #faf8f6,
-    // main page background (warm off-white)
-    background_secondary: #ffffff,
-    // cards / navbar
-    section_background: #f3f0ed,
+    background_primary: #0a0c12,
+    background_secondary: #12151f,
+    section_background: #1a1e2e,
 
-    // subtle section separation
     // Text
-    text_primary: #2b3445,
-    // headings / name
-    text_secondary: #6b7280,
+    text_primary: #e8eaf0,
+    text_secondary: #8b93a8,
 
-    // paragraph text
     // Borders & strokes
-    border_light: #e5e7eb,
-    border_accent: #d6dde8,
+    border_light: #1e2438,
+    border_accent: #252d45,
 
-    // soft blue-gray accent
     // Accent colors
-    primary: #5e718d,
-    // main CTA (View My Work)
-    link: #4e627f,
+    primary: #6e9ef5,
+    link: #5a8ae0,
 
-    // hover / links
     // Status / highlights
-    success: #22c55e,
+    success: #5ecb8a,
 
-    // keep as-is (already good)
     // Soft highlight background
-    highlight_light: #f0f2f6 // button hover bg / badges
+    highlight_light: #1c2235
 );
 
-$primary-font: "--font-montserrat";
+// Font — compatible with Next.js CSS variables
+$primary-font: 'Montserrat', sans-serif;
+$mono-font: 'JetBrains Mono', monospace;
 
 @mixin fourk {
     @media (min-width: 1441px) {

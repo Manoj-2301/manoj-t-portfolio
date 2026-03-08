@@ -1,0 +1,261 @@
+@use "../../../styles/mixin" as *;
+
+// ─────────────────────────────────────────────
+// FOOTER
+// ─────────────────────────────────────────────
+
+.footer {
+    position: relative;
+    background: colormap(background_secondary);
+    border-top: 1px solid colormap(border_light);
+    padding: 4.5rem 0 2rem;
+    margin-top: 6rem;
+
+    // Subtle top glow
+    &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40%;
+        height: 1px;
+        background: linear-gradient(90deg,
+                transparent,
+                colormap(primary),
+                transparent);
+
+        @include mobile {
+            width: 70%;
+        }
+    }
+
+    @include mobile {
+        padding: 3.5rem 0 1.75rem;
+        margin-top: 4rem;
+    }
+}
+
+// ─────────────────────────────────────────────
+// TOP SECTION — brand left, links right
+// ─────────────────────────────────────────────
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    margin-bottom: 3.5rem;
+
+    @include mini {
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
+
+// ── Brand (left) ──────────────────────────────
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    max-width: 300px;
+
+    @include mobile {
+        max-width: 100%;
+    }
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: colormap(text_primary);
+    letter-spacing: -0.04em;
+    line-height: 1;
+
+    // Blue dot after name — same as header
+    &::after {
+        content: '.';
+        color: colormap(primary);
+    }
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: colormap(text_secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: colormap(primary);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease, letter-spacing 0.2s ease;
+
+    &:hover {
+        color: colormap(link);
+        letter-spacing: 0.04em;
+    }
+
+    &::before {
+        content: '✉';
+        font-size: 0.75rem;
+        font-style: normal;
+    }
+}
+
+// ── Links group (right) ───────────────────────
+
+.links_group {
+    display: flex;
+    gap: 4rem;
+
+    @include mobile {
+        gap: 2.5rem;
+    }
+
+    @include sm {
+        gap: 2rem;
+    }
+}
+
+.link_col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 110px;
+}
+
+.col_label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: colormap(text_secondary);
+    font-family: 'JetBrains Mono', monospace;
+    margin: 0;
+}
+
+.link_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.footer_link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: colormap(text_secondary);
+    transition: color 0.2s ease, gap 0.2s ease;
+
+    &:hover {
+        color: colormap(text_primary);
+        gap: 0.5rem;
+    }
+}
+
+.link_arrow {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+
+    .footer_link:hover & {
+        opacity: 1;
+    }
+}
+
+// ─────────────────────────────────────────────
+// DIVIDER
+// ─────────────────────────────────────────────
+
+.divider {
+    height: 1px;
+    background: colormap(border_light);
+    margin-bottom: 1.75rem;
+}
+
+// ─────────────────────────────────────────────
+// BOTTOM BAR
+// ─────────────────────────────────────────────
+
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    position: relative;
+
+    @include mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+.copyright {
+    font-size: 0.78rem;
+    color: colormap(text_secondary);
+    margin: 0;
+    font-weight: 400;
+}
+
+.stack_note {
+    font-size: 0.72rem;
+    color: colormap(border_accent);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.06em;
+    margin: 0;
+
+    @include mobile {
+        display: none;
+    }
+}
+
+// ─────────────────────────────────────────────
+// BACK TO TOP BUTTON
+// opacity + y animated by Framer Motion
+// ─────────────────────────────────────────────
+
+.back_top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 42px;
+    height: 42px;
+    background: colormap(background_secondary);
+    border: 1px solid colormap(border_accent);
+    border-radius: 50%;
+    color: colormap(text_primary);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+        background: colormap(section_background);
+        border-color: colormap(primary);
+        box-shadow: 0 0 16px rgba(110, 158, 245, 0.25);
+        color: colormap(primary);
+    }
+
+    @include mobile {
+        bottom: 1.25rem;
+        right: 1.25rem;
+        width: 38px;
+        height: 38px;
+    }
+}

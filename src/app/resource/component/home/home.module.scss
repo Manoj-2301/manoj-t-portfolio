@@ -1,259 +1,16 @@
 @use "../../styles/mixin" as *;
 
-
-.hero_container {
-    display: flex;
-    // justify-content: flex-start;
-    // align-items: center;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-
-    /* ✅ MOBILE ONLY */
-    @include mobile {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .hero_content {
-        width: 50%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-
-        /* ✅ MOBILE FIX */
-        @include mobile {
-            width: 100%;
-            position: static;
-            /* 🔥 IMPORTANT */
-            text-align: center;
-            padding: 1.5rem;
-            order: 2;
-        }
-
-        h1 {
-            font-weight: 400;
-            font-size: 1.5rem;
-            color: colormap(text_secondary);
-
-            .hero_designation {
-                font-size: 1.5rem;
-                font-weight: 600;
-                color: colormap(text_secondary);
-            }
-
-            .hero_name {
-                font-size: 4rem;
-                font-weight: 900;
-                color: colormap(text_primary);
-                margin-bottom: 1rem;
-
-                @include mini {
-                    font-size: 3rem;
-                }
-
-                @include sm {
-                    font-size: 2.5rem;
-                }
-            }
-        }
-
-        p {
-            font-size: 1rem;
-            color: colormap(text_secondary);
-            line-height: 1.6;
-
-            @include sm {
-                font-size: 1rem;
-            }
-        }
-
-        .hero_btns {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-
-            @include mobile {
-                justify-content: center;
-                flex-wrap: wrap;
-                margin-top: 1.5rem;
-            }
-
-            .hero_button {
-                font-size: 0.875rem;
-                padding: 0.875rem 1.5rem;
-                border-radius: 3rem;
-                background-color: colormap(primary);
-                color: colormap(background_secondary);
-                box-shadow: 0 11px 1px rgba($color: colormap(background_secondary), $alpha: 1);
-            }
-
-            .hero_button_outline {
-                position: relative;
-                overflow: hidden;
-                z-index: 0;
-
-                font-size: 0.875rem;
-                padding: 0.875rem 1.75rem;
-                border-radius: 3rem;
-                background: transparent;
-                color: colormap(primary);
-                border: 2px solid colormap(primary);
-                cursor: pointer;
-
-                transition:
-                    color 0.6s ease,
-                    box-shadow 0.8s ease,
-                    background 0.8s ease;
-
-                /* text above waves */
-                span {
-                    position: relative;
-                    z-index: 2;
-                }
-
-                &::before,
-                &::after {
-                    content: "";
-                    position: absolute;
-                    z-index: 1;
-                    pointer-events: none;
-                    top: 0;
-                    left: -50%;
-                    right: -50%;
-                    height: 0;
-                    padding-bottom: 200%;
-                    border-radius: 39%;
-                    opacity: 0;
-                    transition:
-                        transform 0s cubic-bezier(0.2, 0, 0.1, 1) 0.5s,
-                        opacity 0.4s ease;
-                }
-
-                &::before {
-                    background: linear-gradient(25deg, colormap(primary), rgba(colormap(primary), 0));
-                    transform: translate3d(-10%, 4.5em, 0) rotate(330deg);
-                }
-
-                &::after {
-                    background: linear-gradient(70deg, rgba(colormap(primary), 0.5), rgba(colormap(primary), 0));
-                    transform: translate3d(10%, 4.5em, 0) rotate(0deg);
-                }
-
-                &:hover,
-                &:focus {
-                    color: colormap(background_secondary);
-                    // background: colormap(primary);
-                    box-shadow: 0 0 1.5rem rgba(colormap(primary), 0.45);
-                }
-
-                &:hover::before,
-                &:hover::after,
-                &:focus::before,
-                &:focus::after {
-                    opacity: 1;
-                    transition:
-                        transform 2s ease,
-                        opacity 0.3s ease;
-                }
-
-                &:hover::before,
-                &:focus::before {
-                    transform: translate3d(-10%, -1em, 0) rotate(110deg);
-                }
-
-                &:hover::after,
-                &:focus::after {
-                    transform: translate3d(10%, -1em, 0) rotate(180deg);
-                }
-            }
-        }
-    }
-
-    .hero_image {
-        width: 50%;
-        position: relative;
-        aspect-ratio: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &::before {
-            content: "";
-            position: absolute;
-            width: 78%;
-            height: 78%;
-            border-radius: 50%;
-            background: radial-gradient(circle at 50% 45%,
-                    rgba(235, 220, 205, 0.6) 0%,
-                    rgba(235, 220, 205, 0.45) 35%,
-                    rgba(235, 220, 205, 0.412) 55%,
-                    rgba(235, 220, 205, 0.34) 70%,
-                    rgba(235, 220, 205, 0.05) 82%,
-                    transparent 100%);
-            z-index: 0;
-            filter: blur(3px);
-        }
-
-        .hero_img {
-            position: relative;
-            z-index: 1;
-            height: 100%;
-            width: 100%;
-            object-fit: contain;
-            object-position: center;
-        }
-
-        /* ✅ MOBILE FIX */
-        @include mobile {
-            width: 100%;
-            height: 60vh;
-            order: 1;
-
-            .hero_img {
-                object-position: top;
-            }
-
-            &::before {
-                width: 100%;
-                height: 80%;
-            }
-        }
-    }
-}
+// ── Keyframe Animations ────────────────────────────────────────────────────
 
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(24px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-.hero_content {
-    h1 {
-        animation: fadeUp 0.7s ease forwards;
-        animation-delay: 0.1s;
-        opacity: 0;
-    }
-
-    p {
-        animation: fadeUp 0.7s ease forwards;
-        animation-delay: 0.3s;
-        opacity: 0;
-    }
-
-    .hero_btns {
-        animation: fadeUp 0.7s ease forwards;
-        animation-delay: 0.5s;
-        opacity: 0;
     }
 }
 
@@ -265,15 +22,350 @@
     }
 
     50% {
-        transform: translateY(-12px);
+        transform: translateY(-14px);
     }
 }
 
-.hero_image {
-    animation: float 5s ease-in-out infinite;
+@keyframes pulseGlow {
 
-    /* entrance */
-    animation: fadeUp 0.9s ease forwards,
-        float 5s 0.9s ease-in-out infinite;
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+}
+
+// ── Hero Container ─────────────────────────────────────────────────────────
+
+.hero_container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    position: relative;
+
+    @include mobile {
+        flex-direction: column;
+        height: auto;
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+    }
+}
+
+// ── Hero Content (left side) ───────────────────────────────────────────────
+
+.hero_content {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+
+    @include mobile {
+        width: 100%;
+        text-align: center;
+        padding: 1.5rem;
+        order: 2;
+        align-items: center;
+    }
+
+    // "Available for work" label above the heading
+    .hero_label {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: colormap(primary);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-family: 'JetBrains Mono', $primary-font;
+
+        // Line before the label
+        &::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 1.5px;
+            background-color: colormap(primary);
+            border-radius: 2px;
+        }
+
+        // Blinking availability dot
+        .dot {
+            width: 7px;
+            height: 7px;
+            background-color: colormap(success);
+            border-radius: 50%;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @include mobile {
+            &::before {
+                display: none;
+            }
+        }
+
+        // Entrance animation — first
+        animation: fadeUp 0.6s ease forwards;
+        animation-delay: 0.05s;
+        opacity: 0;
+    }
+
+    h1 {
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: colormap(text_secondary);
+        line-height: 1.3;
+
+        // Entrance animation — second
+        animation: fadeUp 0.7s ease forwards;
+        animation-delay: 0.2s;
+        opacity: 0;
+
+        .hero_name {
+            display: block;
+            font-size: 4.25rem;
+            font-weight: 900;
+            color: colormap(text_primary);
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin: 0.2rem 0;
+
+            @include mini {
+                font-size: 3.5rem;
+            }
+
+            @include sm {
+                font-size: 2.75rem;
+            }
+        }
+
+        .hero_designation {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            color: colormap(success);
+            letter-spacing: 0.04em;
+            margin-top: 0.5rem;
+
+            @include sm {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        color: colormap(text_secondary);
+        line-height: 1.75;
+        margin-top: 1.25rem;
+        max-width: 420px;
+
+        // Entrance animation — third
+        animation: fadeUp 0.7s ease forwards;
+        animation-delay: 0.38s;
+        opacity: 0;
+
+        @include sm {
+            font-size: 0.9rem;
+        }
+    }
+
+    .hero_btns {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2.25rem;
+
+        // Entrance animation — fourth
+        animation: fadeUp 0.7s ease forwards;
+        animation-delay: 0.55s;
+        opacity: 0;
+
+        @include mobile {
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.75rem;
+        }
+
+        // Filled CTA button
+        .hero_button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.875rem 1.75rem;
+            border-radius: 3rem;
+            background-color: colormap(primary);
+            color: colormap(background_primary);
+            letter-spacing: 0.02em;
+            transition:
+                background-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.2s ease;
+
+            &:hover {
+                background-color: colormap(link);
+                box-shadow: 0 0 28px rgba(110, 158, 245, 0.4);
+                transform: translateY(-2px);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+
+        // Outlined wave-fill button (your original — kept and improved)
+        .hero_button_outline {
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.875rem 1.75rem;
+            border-radius: 3rem;
+            background: transparent;
+            color: colormap(primary);
+            border: 1.5px solid rgba(110, 158, 245, 0.4);
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition:
+                color 0.6s ease,
+                box-shadow 0.8s ease,
+                border-color 0.4s ease;
+
+            span {
+                position: relative;
+                z-index: 2;
+            }
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                pointer-events: none;
+                top: 0;
+                left: -50%;
+                right: -50%;
+                height: 0;
+                padding-bottom: 200%;
+                border-radius: 39%;
+                opacity: 0;
+                transition:
+                    transform 0s cubic-bezier(0.2, 0, 0.1, 1) 0.5s,
+                    opacity 0.4s ease;
+            }
+
+            &::before {
+                background: linear-gradient(25deg,
+                        colormap(primary),
+                        rgba(110, 158, 245, 0));
+                transform: translate3d(-10%, 4.5em, 0) rotate(330deg);
+            }
+
+            &::after {
+                background: linear-gradient(70deg,
+                        rgba(110, 158, 245, 0.5),
+                        rgba(110, 158, 245, 0));
+                transform: translate3d(10%, 4.5em, 0) rotate(0deg);
+            }
+
+            &:hover,
+            &:focus {
+                color: colormap(background_primary);
+                box-shadow: 0 0 24px rgba(110, 158, 245, 0.35);
+                border-color: colormap(primary);
+            }
+
+            &:hover::before,
+            &:hover::after,
+            &:focus::before,
+            &:focus::after {
+                opacity: 1;
+                transition:
+                    transform 2s ease,
+                    opacity 0.3s ease;
+            }
+
+            &:hover::before,
+            &:focus::before {
+                transform: translate3d(-10%, -1em, 0) rotate(110deg);
+            }
+
+            &:hover::after,
+            &:focus::after {
+                transform: translate3d(10%, -1em, 0) rotate(180deg);
+            }
+        }
+    }
+}
+
+// ── Hero Image (right side) ────────────────────────────────────────────────
+
+.hero_image {
+    width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Entrance + float animation
+    animation:
+        fadeUp 0.9s ease forwards,
+        float 6s 0.9s ease-in-out infinite;
     opacity: 0;
+
+    // Glowing aura behind the image
+    &::before {
+        content: "";
+        position: absolute;
+        width: 72%;
+        height: 72%;
+        border-radius: 50%;
+        background: radial-gradient(circle at 50% 45%,
+                rgba(110, 158, 245, 0.18) 0%,
+                rgba(110, 158, 245, 0.12) 30%,
+                rgba(94, 113, 141, 0.1) 55%,
+                rgba(94, 113, 141, 0.04) 75%,
+                transparent 100%);
+        z-index: 0;
+        filter: blur(18px);
+        animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    .hero_img {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    @include mobile {
+        width: 100%;
+        height: 60vh;
+        order: 1;
+
+        .hero_img {
+            object-position: top;
+        }
+
+        &::before {
+            width: 90%;
+            height: 80%;
+        }
+    }
 }
