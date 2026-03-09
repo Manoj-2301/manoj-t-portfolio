@@ -8,8 +8,8 @@ import { useEffect, useRef } from 'react';
 
 const GRID_SIZE = 48;    // must match global.scss background-size: 48px 48px
 const DOT_COUNT = 8;    // how many pulses on screen at once
-const DOT_RADIUS = 1.8;   // size of the pulse dot
-const TRAIL_STEPS = 10;    // how many trail dots behind the head
+const DOT_RADIUS = 1.5;   // size of the pulse dot
+const TRAIL_STEPS = 5;    // how many trail dots behind the head
 const SPEED_MIN = 40;    // px per second (slowest pulse)
 const SPEED_MAX = 100;   // px per second (fastest pulse)
 
