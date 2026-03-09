@@ -121,7 +121,7 @@ export default function ResumePage() {
                 >
                     <motion.p className={styles.eyebrow} variants={lineVariants}>Resume</motion.p>
                     <motion.h1 className={styles.title} variants={lineVariants}>
-                        Manoj<br /><span>Thapa</span>
+                        Manoj <span>Thapa</span>
                     </motion.h1>
                     <motion.p className={styles.subtitle} variants={lineVariants}>
                         Front-End Developer & UI/UX Designer
@@ -282,7 +282,7 @@ export default function ResumePage() {
                         >
                             <div className={styles.info_row}>
                                 <span className={styles.info_label}>Location</span>
-                                <span className={styles.info_val}>Kathmandu, Nepal</span>
+                                <span className={styles.info_val}>Hyderabad, India</span>
                             </div>
                             <div className={styles.info_row}>
                                 <span className={styles.info_label}>Availability</span>
@@ -292,11 +292,11 @@ export default function ResumePage() {
                             </div>
                             <div className={styles.info_row}>
                                 <span className={styles.info_label}>Languages</span>
-                                <span className={styles.info_val}>English, Nepali</span>
+                                <span className={styles.info_val}>English, Hindi, Nepali</span>
                             </div>
                             <div className={styles.info_row}>
                                 <span className={styles.info_label}>Experience</span>
-                                <span className={styles.info_val}>2+ years</span>
+                                <span className={styles.info_val}>1+ years</span>
                             </div>
                         </motion.div>
 
@@ -311,9 +311,9 @@ export default function ResumePage() {
                             <p className={styles.cta_text}>
                                 Interested in working together?
                             </p>
-                            <Link href="/contact" className={styles.cta_btn}>
+                            <a href="#contact" className={styles.cta_btn}>
                                 Get in touch →
-                            </Link>
+                            </a>
                         </motion.div>
 
                     </div>

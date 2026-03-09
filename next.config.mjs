@@ -37,6 +37,7 @@ const nextConfig = {
                 as: '*.js',
             },
         },
+        root: '.', // Tell Turbopack that THIS is the correct root directory, not C:\Users\manoj
     },
     images: {
         remotePatterns: [

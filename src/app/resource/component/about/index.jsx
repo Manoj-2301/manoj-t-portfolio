@@ -3,9 +3,11 @@
 import React, { useState } from 'react';
 import styles from './about.module.scss';
 import Image from 'next/image';
+import LinkedInCard from './linkdin_card';
 
 const AboutMe = () => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isFlipped, setIsFlipped] = useState(false);
 
     return (
         <div className='contain-fluid' id='about'>
@@ -64,14 +66,32 @@ const AboutMe = () => {
                     </div>
                 </div>
 
-                {/* ── Right: Image ── */}
-                <div className={styles.about_image}>
-                    <Image
-                        src="/images/manoj-image.png"
-                        alt="Manoj Thapa"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 44vw"
-                    />
+                {/* ── Right: Flip Card (Image ↔ LinkedIn) ── */}
+                <div className={styles.flip_container} onClick={() => setIsFlipped(!isFlipped)}>
+                    <div className={`${styles.flip_card} ${isFlipped ? styles.flipped : ''}`}>
+                        {/* Front: Profile Image */}
+                        <div className={styles.flip_front}>
+                            <div className={styles.about_image}>
+                                <Image
+                                    src="/images/manoj-image.png"
+                                    alt="Manoj Thapa"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 44vw"
+                                />
+                            </div>
+                            <div className={styles.flip_hint}>
+                                <span>Click to view LinkedIn</span>
+                            </div>
+                        </div>
+
+                        {/* Back: LinkedIn Card */}
+                        <div className={styles.flip_back}>
+                            <LinkedInCard />
+                            {/* <div className={styles.flip_hint}>
+                                <span>Click to go back</span>
+                            </div> */}
+                        </div>
+                    </div>
                 </div>
 
             </div>

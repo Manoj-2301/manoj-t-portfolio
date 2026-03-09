@@ -11,25 +11,31 @@ import styles from './contact.module.scss';
 const CONTACT_INFO = [
     {
         label: 'Email',
-        value: 'manojthapa@email.com',
-        href: 'mailto:manojthapa@email.com',
+        value: 'manojthapa.uiux@gmail.com',
+        href: 'mailto:manojthapa.uiux@gmail.com',
         icon: '✉',
+    },
+    {
+        label: 'WhatsApp',
+        value: 'Chat via WhatsApp',
+        href: 'https://wa.me/+918639563091', // Change this!
+        icon: '💬',
     },
     {
         label: 'LinkedIn',
         value: 'linkedin.com/in/manojthapa',
-        href: 'https://linkedin.com/in/manojthapa',
+        href: 'www.linkedin.com/in/manoj-thapa-715430228',
         icon: '↗',
     },
     {
         label: 'GitHub',
         value: 'github.com/manojthapa',
-        href: 'https://github.com/manojthapa',
+        href: 'https://github.com/Manoj-2301',
         icon: '↗',
     },
     {
         label: 'Location',
-        value: 'Kathmandu, Nepal',
+        value: 'Hyderabad, India',
         href: null,
         icon: '◎',
     },
@@ -89,10 +95,25 @@ function ContactForm() {
 
         setStatus('sending');
 
-        // ── Replace this with your real form submission (EmailJS, Resend, etc.) ──
-        await new Promise(r => setTimeout(r, 1500)); // simulated delay
-        setStatus('sent');
-        setForm(INITIAL_FORM);
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(form)
+            });
+
+            if (response.ok) {
+                setStatus('sent');
+                setForm(INITIAL_FORM);
+            } else {
+                setStatus('idle');
+                alert('Failed to send message. Please try again.');
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            setStatus('idle');
+            alert('Failed to send message. Please try again.');
+        }
     };
 
     if (status === 'sent') {
@@ -242,7 +263,7 @@ function ContactForm() {
 
 export default function ContactPage() {
     return (
-        <div className={styles.page}>
+        <div className={styles.page} id="contact">
             <div className="contain-fluid">
 
                 {/* Header */}

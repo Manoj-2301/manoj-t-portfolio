@@ -1,0 +1,89 @@
+@use "../../../styles/mixin" as *;
+// ── LinkedIn Profile Card ────────────────────────────────────────────
+
+.linkedin_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    width: 280px;
+    padding: 2rem 1.5rem;
+    background: colormap(background_secondary);
+    border: 1px solid colormap(border_light);
+    border-radius: 1.25rem;
+    text-decoration: none;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+
+    &:hover {
+        border-color: #0a66c2;
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(10, 102, 194, 0.15);
+    }
+
+    @include mobile {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+}
+
+.linkedin_header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #0a66c2;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    align-self: stretch;
+    justify-content: center;
+}
+
+.linkedin_logo_text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+}
+
+.linkedin_avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(10, 102, 194, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.linkedin_info {
+    text-align: center;
+}
+
+.linkedin_name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: colormap(text_primary);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+}
+
+.linkedin_title {
+    font-size: 0.78rem;
+    color: colormap(text_secondary);
+    line-height: 1.4;
+}
+
+.linkedin_btn {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #0a66c2;
+    border: 1.5px solid #0a66c2;
+    border-radius: 2rem;
+    padding: 0.5rem 1.5rem;
+    transition: background 0.25s ease, color 0.25s ease;
+
+    .linkedin_card:hover & {
+        background: #0a66c2;
+        color: #ffffff;
+    }
+}

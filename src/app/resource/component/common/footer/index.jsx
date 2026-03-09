@@ -122,7 +122,7 @@ const Footer = () => {
                 )}
 
                 {/* ── Divider ── */}
-                <div className={styles.divider} />
+                {/* <div className={styles.divider} /> */}
 
                 {/* ── Bottom bar ── */}
                 <div className={styles.bottom}>

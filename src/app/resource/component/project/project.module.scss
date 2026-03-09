@@ -129,6 +129,7 @@
 .marquee_track {
     overflow: visible;
     position: relative;
+    margin-top: 10px;
 }
 
 // ── Row — Framer Motion animates the x transform ─────────────────────────────
@@ -282,8 +283,10 @@
 
 .card_tooltip {
     position: absolute;
-    bottom: calc(100% + 14px);
-    left: 50%;
+    // bottom: calc(100% + 14px);
+    // left: 50%;
+    left: 10%;
+    top: 10%;
     // x: '-50%' set via Framer Motion initial/animate
     z-index: 200;
     pointer-events: none; // clicks pass through
@@ -303,26 +306,26 @@
     }
 
     // Arrow tip
-    &::after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        border: 7px solid transparent;
-        border-top-color: rgba(110, 158, 245, 0.22);
-    }
+    // &::after {
+    //     content: '';
+    //     position: absolute;
+    //     top: 100%;
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //     border: 7px solid transparent;
+    //     border-top-color: rgba(110, 158, 245, 0.22);
+    // }
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: calc(100% - 1px);
-        left: 50%;
-        transform: translateX(-50%);
-        border: 7px solid transparent;
-        border-top-color: #1a1e2e;
-        z-index: 1;
-    }
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: calc(100% - 1px);
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //     border: 7px solid transparent;
+    //     border-top-color: #1a1e2e;
+    //     z-index: 1;
+    // }
 
     .tooltip_title {
         font-size: 0.85rem;

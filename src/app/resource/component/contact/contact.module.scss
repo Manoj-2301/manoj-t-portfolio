@@ -285,6 +285,8 @@
 
     &:focus {
         border-color: colormap(primary);
+        // height: 50px;
+        padding: 0.8rem 1rem;
         box-shadow: 0 0 0 3px rgba(110, 158, 245, 0.12);
     }
 
@@ -310,7 +312,8 @@
 // Submit button
 .submit_btn {
     width: 100%;
-    padding: 0.95rem;
+    // padding: 0.95rem;
+    height: 50px;
     background: colormap(primary);
     color: colormap(background_primary);
     border: none;
@@ -325,29 +328,34 @@
 
     &:disabled {
         opacity: 0.7;
+        // padding: 0.95rem;
         cursor: not-allowed;
     }
 
-    &:not(:disabled):hover {
+    &:not(:disabled) {
         background: colormap(link);
     }
-}
 
-.sending {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+    .sending {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        height: 50px;
+        background: colormap(primary);
 
-    &::after {
-        content: '';
-        width: 14px;
-        height: 14px;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-top-color: #fff;
-        border-radius: 50%;
-        animation: spin 0.7s linear infinite;
+        &::after {
+            content: '';
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
     }
 }
+
+
 
 @keyframes spin {
     to {
