@@ -38,7 +38,9 @@ const BackToTop = () => {
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
-    const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     return (
         <motion.button
@@ -46,6 +48,8 @@ const BackToTop = () => {
             onClick={scrollToTop}
             animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 10 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
+            initial={{ opacity: 0, y: 10 }}
+            style={{ pointerEvents: visible ? 'auto' : 'none' }}
             aria-label="Back to top"
         >
             ↑
@@ -62,7 +66,7 @@ const Footer = () => {
 
     return (
         <footer className={styles.footer}>
-            <div className="contain-fluid">``
+            <div className="contain-fluid">
 
                 {/* ── Top section ── */}
                 {false && (

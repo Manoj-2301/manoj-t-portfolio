@@ -12,7 +12,7 @@ const Header = () => {
     const links = [
         { name: 'Home', href: '/' },
         { name: 'About', href: '#about' },
-        { name: 'Services', href: '/services' },
+        { name: 'Services', href: '#services' },
     ];
 
     // Add a stronger blur/shadow when user scrolls down

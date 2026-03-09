@@ -199,7 +199,7 @@ const ServiceCard = ({ service }) => {
 
 const ServicesPage = () => {
     return (
-        <div className={styles.page}>
+        <div className={styles.page} id="services">
             <div className="contain-fluid">
 
                 {/* Header */}
