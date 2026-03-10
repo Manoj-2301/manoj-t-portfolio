@@ -20,342 +20,347 @@
     @include mobile {
         padding: 4rem 0 5rem;
     }
-}
 
-// ── Header ────────────────────────────────────────────────────────────────────
+    // ── Header ────────────────────────────────────────────────────────────────────
 
-.header {
-    margin-bottom: 4.5rem;
+    .header {
+        margin-bottom: 4.5rem;
 
-    @include mobile {
-        margin-bottom: 3rem;
-    }
-}
-
-.eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    margin-bottom: 0.75rem;
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: colormap(primary);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-family: 'JetBrains Mono', monospace;
-
-    &::before {
-        content: '';
-        display: block;
-        width: 24px;
-        height: 1.5px;
-        background: colormap(primary);
-        border-radius: 2px;
-    }
-
-    @include mobile {
-        justify-content: center;
-
-        &::before {
-            display: none;
+        @include mobile {
+            margin-bottom: 3rem;
         }
     }
-}
 
-.title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    color: colormap(text_primary);
-    letter-spacing: -0.035em;
-    line-height: 1.05;
-    margin-bottom: 1.1rem;
-
-    span {
+    .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.72rem;
+        font-weight: 500;
         color: colormap(primary);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-family: 'JetBrains Mono', monospace;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: colormap(primary);
+            border-radius: 2px;
+        }
+
+        @include mobile {
+            justify-content: center;
+
+            &::before {
+                display: none;
+            }
+        }
     }
 
-    @include mobile {
-        text-align: center;
-    }
-}
+    .title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        color: colormap(text_primary);
+        letter-spacing: -0.035em;
+        line-height: 1.05;
+        margin-bottom: 1.1rem;
 
-.subtitle {
-    font-size: 1rem;
-    color: colormap(text_secondary);
-    line-height: 1.7;
-    max-width: 420px;
+        span {
+            color: colormap(primary);
+        }
 
-    @include mobile {
-        text-align: center;
-        margin: 0 auto;
-        font-size: 0.9rem;
-    }
-}
-
-// ── Two-column layout ─────────────────────────────────────────────────────────
-
-.layout {
-    display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 4rem;
-    align-items: start;
-
-    @include laptop {
-        gap: 3rem;
+        @include mobile {
+            text-align: center;
+        }
     }
 
-    @include mobile {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+    .subtitle {
+        font-size: 1rem;
+        color: colormap(text_secondary);
+        line-height: 1.7;
+        max-width: 420px;
+
+        @include mobile {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 0.9rem;
+        }
     }
-}
 
-// ── Info column (left) ────────────────────────────────────────────────────────
+    // ── Two-column layout ─────────────────────────────────────────────────────────
 
-.info_col {
-    position: sticky;
-    top: 6rem;
+    .layout {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        gap: 4rem;
+        align-items: start;
 
-    @include mobile {
-        position: static;
+        @include laptop {
+            gap: 3rem;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
     }
-}
 
-.info_intro {
-    font-size: 0.95rem;
-    color: colormap(text_secondary);
-    line-height: 1.75;
-    margin-bottom: 2.5rem;
-}
+    // ── Info column (left) ────────────────────────────────────────────────────────
 
-.info_list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
+    .info_col {
+        position: sticky;
+        top: 6rem;
 
-.info_item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem 1.1rem;
-    background: colormap(background_secondary);
-    border: 1px solid colormap(border_light);
-    border-radius: 0.875rem;
-    cursor: default;
-    transition: border-color 0.25s ease, background 0.25s ease;
-
-    &:hover {
-        border-color: colormap(border_accent);
-        background: colormap(section_background);
+        @include mobile {
+            position: static;
+        }
     }
-}
 
-.info_icon {
-    font-size: 1rem;
-    color: colormap(primary);
-    width: 32px;
-    height: 32px;
-    background: rgba(110, 158, 245, 0.1);
-    border: 1px solid rgba(110, 158, 245, 0.2);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-style: normal;
-}
+    .info_intro {
+        font-size: 0.95rem;
+        color: colormap(text_secondary);
+        line-height: 1.75;
+        margin-bottom: 2.5rem;
+    }
 
-.info_text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-}
+    .info_list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
 
-.info_label {
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: colormap(text_secondary);
-    font-family: 'JetBrains Mono', monospace;
-}
+    .info_item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem 1.1rem;
+        background: colormap(background_secondary);
+        border: 1px solid colormap(border_light);
+        border-radius: 0.875rem;
+        cursor: default;
+        transition: border-color 0.25s ease, background 0.25s ease;
 
-.info_value {
-    font-size: 0.88rem;
-    color: colormap(text_primary);
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.2s ease;
+        &:hover {
+            border-color: colormap(border_accent);
+            background: colormap(section_background);
+        }
+    }
 
-    a#{&}:hover {
+    .info_icon {
+        font-size: 1rem;
         color: colormap(primary);
-    }
-}
-
-// Availability badge
-.availability {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: colormap(success);
-    background: rgba(94, 203, 138, 0.1);
-    border: 1px solid rgba(94, 203, 138, 0.2);
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-}
-
-.avail_dot {
-    width: 7px;
-    height: 7px;
-    background: colormap(success);
-    border-radius: 50%;
-    animation: pulseDot 2s ease-in-out infinite;
-}
-
-// ── Form column (right) ───────────────────────────────────────────────────────
-
-.form_col {
-    background: colormap(background_secondary);
-    border: 1px solid colormap(border_light);
-    border-radius: 1.5rem;
-    padding: 2.25rem;
-
-    @include mobile {
-        padding: 1.5rem;
-    }
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
-.form_row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-
-    @include sm {
-        grid-template-columns: 1fr;
-    }
-}
-
-.field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    position: relative;
-}
-
-.label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: colormap(text_secondary);
-    letter-spacing: 0.04em;
-}
-
-.optional {
-    font-size: 0.7rem;
-    font-weight: 400;
-    color: colormap(border_accent);
-    margin-left: 0.3rem;
-}
-
-.input {
-    width: 100%;
-    background: colormap(background_primary);
-    border: 1.5px solid colormap(border_light);
-    border-radius: 0.75rem;
-    padding: 0.8rem 1rem;
-    font-size: 0.9rem;
-    color: colormap(text_primary);
-    font-family: $primary-font;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    outline: none;
-    resize: none;
-
-    &::placeholder {
-        color: colormap(border_accent);
+        width: 32px;
+        height: 32px;
+        background: rgba(110, 158, 245, 0.1);
+        border: 1px solid rgba(110, 158, 245, 0.2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-style: normal;
     }
 
-    &:focus {
-        border-color: colormap(primary);
-        // height: 50px;
-        padding: 0.8rem 1rem;
-        box-shadow: 0 0 0 3px rgba(110, 158, 245, 0.12);
+    .info_text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
     }
 
-    &.input_error {
-        border-color: #f04f5a;
-        box-shadow: 0 0 0 3px rgba(240, 79, 90, 0.1);
-    }
-}
-
-.textarea {
-    resize: vertical;
-    min-height: 130px;
-    line-height: 1.6;
-}
-
-.error {
-    font-size: 0.72rem;
-    color: #f04f5a;
-    font-weight: 500;
-    margin-top: 0.15rem;
-}
-
-// Submit button
-.submit_btn {
-    width: 100%;
-    // padding: 0.95rem;
-    height: 50px;
-    background: colormap(primary);
-    color: colormap(background_primary);
-    border: none;
-    border-radius: 0.875rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    cursor: pointer;
-    margin-top: 0.25rem;
-    font-family: $primary-font;
-    transition: background 0.25s ease;
-
-    &:disabled {
-        opacity: 0.7;
-        // padding: 0.95rem;
-        cursor: not-allowed;
+    .info_label {
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: colormap(text_secondary);
+        font-family: 'JetBrains Mono', monospace;
     }
 
-    &:not(:disabled) {
-        background: colormap(link);
+    .info_value {
+        font-size: 0.88rem;
+        color: colormap(text_primary);
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        a#{&}:hover {
+            color: colormap(primary);
+        }
     }
 
-    .sending {
+    // Availability badge
+    .availability {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        height: 50px;
-        background: colormap(primary);
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: colormap(success);
+        background: rgba(94, 203, 138, 0.1);
+        border: 1px solid rgba(94, 203, 138, 0.2);
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+    }
 
-        &::after {
-            content: '';
-            width: 14px;
-            height: 14px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top-color: #fff;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
+    .avail_dot {
+        width: 7px;
+        height: 7px;
+        background: colormap(success);
+        border-radius: 50%;
+        animation: pulseDot 2s ease-in-out infinite;
+    }
+
+    // ── Form column (right) ───────────────────────────────────────────────────────
+
+    .form_col {
+        background: colormap(background_secondary);
+        border: 1px solid colormap(border_light);
+        border-radius: 1.5rem;
+        padding: 2.25rem;
+
+        @include mobile {
+            padding: 1.5rem;
         }
     }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .form_row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+
+        @include sm {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        position: relative;
+    }
+
+    .label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: colormap(text_secondary);
+        letter-spacing: 0.04em;
+    }
+
+    .optional {
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: colormap(border_accent);
+        margin-left: 0.3rem;
+    }
+
+    .input {
+        width: 100%;
+        background: colormap(background_primary);
+        border: 1.5px solid colormap(border_light);
+        border-radius: 0.75rem;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+        color: colormap(text_primary);
+        font-family: $primary-font;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        outline: none;
+        resize: none;
+
+        @include mobile {
+            font-size: 1rem; // Prevent iOS zoom and improve touch targets
+        }
+
+        &::placeholder {
+            color: colormap(border_accent);
+        }
+
+        &:focus {
+            border-color: colormap(primary);
+            // height: 50px;
+            padding: 0.8rem 1rem;
+            box-shadow: 0 0 0 3px rgba(110, 158, 245, 0.12);
+        }
+
+        &.input_error {
+            border-color: #f04f5a;
+            box-shadow: 0 0 0 3px rgba(240, 79, 90, 0.1);
+        }
+    }
+
+    .textarea {
+        resize: vertical;
+        min-height: 130px;
+        line-height: 1.6;
+    }
+
+    .error {
+        font-size: 0.72rem;
+        color: #f04f5a;
+        font-weight: 500;
+        margin-top: 0.15rem;
+    }
+
+    // Submit button
+    .submit_btn {
+        width: 100%;
+        // padding: 0.95rem;
+        height: 50px;
+        background: colormap(primary);
+        color: colormap(background_primary);
+        border: none;
+        border-radius: 0.875rem;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        cursor: pointer;
+        margin-top: 0.25rem;
+        font-family: $primary-font;
+        transition: background 0.25s ease;
+
+        &:disabled {
+            opacity: 0.7;
+            // padding: 0.95rem;
+            cursor: not-allowed;
+        }
+
+        &:not(:disabled) {
+            background: colormap(link);
+        }
+
+        .sending {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            height: 50px;
+            background: colormap(primary);
+
+            &::after {
+                content: '';
+                width: 14px;
+                height: 14px;
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                border-top-color: #fff;
+                border-radius: 50%;
+                animation: spin 0.7s linear infinite;
+            }
+        }
+    }
+
+
+
 }
-
-
 
 @keyframes spin {
     to {

@@ -107,7 +107,7 @@ function SectionTitle({ children }) {
 // PAGE
 // ─────────────────────────────────────────────
 
-export default function ResumePage() {
+const ResumePage = () => {
     return (
         <div className={styles.page}>
             <div className="contain-fluid">
@@ -323,4 +323,6 @@ export default function ResumePage() {
             </div>
         </div>
     );
-}
+};
+
+export default ResumePage;

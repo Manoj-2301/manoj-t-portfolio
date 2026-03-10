@@ -261,7 +261,7 @@ function ContactForm() {
 // PAGE
 // ─────────────────────────────────────────────
 
-export default function ContactPage() {
+const ContactPage = () => {
     return (
         <div className={styles.page} id="contact">
             <div className="contain-fluid">
@@ -349,4 +349,6 @@ export default function ContactPage() {
             </div>
         </div>
     );
-}
+};
+
+export default ContactPage;
